@@ -1,0 +1,10 @@
+### Register
+POST http://127.0.0.1:3040/v1/auth/register
+Content-Type: application/json
+
+{
+    "name": "bennefit ganteng",
+    "email": "bennefit.19@gmail.com",
+    "password": "securepassword",
+    "role": "user"
+}
