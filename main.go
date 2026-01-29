@@ -25,7 +25,12 @@ func main() {
 	userService := services.NewUserService(userRepo)
 	userController := controllers.NewUserController(userService)
 
-	routes.Setup(app, userController)
+	// teacher
+	teacherRepo := repositories.NewTeacherRepository()
+	teacherService := services.NewTeacherService(teacherRepo)
+	teacherController := controllers.NewTeacherController(teacherService)
+
+	routes.Setup(app, userController, teacherController)
 
 	port := config.AppConfig.AppPort
 	log.Println("Server is running on port:", port)

@@ -8,3 +8,12 @@ Content-Type: application/json
     "password": "securepassword",
     "role": "user"
 }
+
+### Login
+POST http://127.0.0.1:3040/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "bennefit.19@gmail.com",
+    "password": "securepassword"
+}

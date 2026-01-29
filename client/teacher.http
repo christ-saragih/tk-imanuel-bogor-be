@@ -1,0 +1,24 @@
+### Create Teacher
+POST http://127.0.0.1:3040/v1/teachers
+Content-Type: application/json
+
+{
+    "name": "Ibu Rini Hartati",
+    "role": "Kepala Sekolah",
+    "photo": "https://picsum.photos/seed/rini/400/400",
+    "bio": "Ibu Rini mendedikasikan hidupnya untuk dunia pendidikan anak usia dini. Beliau percaya bahwa setiap anak adalah bintang yang memiliki sinarnya sendiri. Pendekatan beliau menggabungkan kedisiplinan lembut dengan kebebasan berekspresi.",
+    "education": "S2 Psikologi Pendidikan Anak, Universitas Indonesia",
+    "experience": 15,
+    "fun_fact": "Suka sekali mendongeng dengan suara karakter yang berbeda-beda!",
+    "quote": "Mendidik pikiran tanpa mendidik hati adalah bukan pendidikan sama sekali.",
+    "color": "bg-kid-yellow"
+}
+
+### Get All Teachers
+GET http://127.0.0.1:3040/v1/teachers
+
+### Get Teacher by Public ID
+GET http://127.0.0.1:3040/v1/teachers/a7090baf-9b6b-4cb2-ba31-b8aac75aa543
+
+### Delete Teacher
+DELETE http://127.0.0.1:3040/v1/teachers/a7090baf-9b6b-4cb2-ba31-b8aac75aa543
