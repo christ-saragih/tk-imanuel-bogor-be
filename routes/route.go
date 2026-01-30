@@ -11,7 +11,9 @@ import (
 func Setup(
 	app *fiber.App, 
 	uc *controllers.UserController, 
-	tc *controllers.TeacherController,) {
+	tc *controllers.TeacherController,
+	jc *controllers.JumbotronController, // diinject
+) {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error load .env file")
@@ -28,4 +30,8 @@ func Setup(
 	app.Get("/v1/teachers/:id", tc.GetTeacherDetail)
 	app.Put("/v1/teachers/:id", tc.UpdateTeacher)
 	app.Delete("/v1/teachers/:id", tc.DeleteTeacher)
+
+	// Jumbotron Routes
+	app.Get("/v1/jumbotron", jc.GetJumbotron)
+	app.Put("/v1/jumbotron", jc.UpsertJumbotron)
 }

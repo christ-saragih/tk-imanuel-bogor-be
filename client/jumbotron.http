@@ -1,0 +1,22 @@
+### Get Jumbotron Data
+GET http://127.0.0.1:3040/v1/jumbotron
+Accept: application/json
+
+### Upsert Jumbotron (Init/Update)
+PUT http://127.0.0.1:3040/v1/jumbotron
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="title"
+
+Selamat Datang di TK Imanuel Bogor
+--boundary
+Content-Disposition: form-data; name="description"
+
+Mewujudkan Generasi Cerdas, Berkarakter, dan Takut akan Tuhan.
+--boundary
+Content-Disposition: form-data; name="image"; filename="banner.jpg"
+Content-Type: image/jpeg
+
+< ./test-image.jpg
+--boundary--

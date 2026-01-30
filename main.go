@@ -30,7 +30,12 @@ func main() {
 	teacherService := services.NewTeacherService(teacherRepo)
 	teacherController := controllers.NewTeacherController(teacherService)
 
-	routes.Setup(app, userController, teacherController)
+	// jumbotron
+	jumbotronRepo := repositories.NewJumbotronRepository()
+	jumbotronService := services.NewJumbotronService(jumbotronRepo)
+	jumbotronController := controllers.NewJumbotronController(jumbotronService)
+
+	routes.Setup(app, userController, teacherController, jumbotronController)
 
 	port := config.AppConfig.AppPort
 	log.Println("Server is running on port:", port)
