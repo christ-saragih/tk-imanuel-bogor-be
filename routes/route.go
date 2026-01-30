@@ -12,8 +12,9 @@ func Setup(
 	app *fiber.App, 
 	uc *controllers.UserController, 
 	tc *controllers.TeacherController,
-	jc *controllers.JumbotronController, // diinject
-) {
+	jc *controllers.JumbotronController,
+	cc *controllers.ContactController,
+) { 
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error load .env file")
@@ -34,4 +35,8 @@ func Setup(
 	// Jumbotron Routes
 	app.Get("/v1/jumbotron", jc.GetJumbotron)
 	app.Put("/v1/jumbotron", jc.UpsertJumbotron)
+
+	// Contact Routes
+	app.Get("/v1/contact", cc.GetContact)
+	app.Put("/v1/contact", cc.UpsertContact)
 }

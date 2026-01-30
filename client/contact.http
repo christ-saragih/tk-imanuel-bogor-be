@@ -1,0 +1,21 @@
+### Get Contact
+GET http://127.0.0.1:3040/v1/contact
+Accept: application/json
+
+### Upsert Contact (Init/Update)
+PUT http://127.0.0.1:3040/v1/contact
+Content-Type: application/json
+
+{
+    "address": "Jl. Cincau No. 123, Bogor Timur",
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=...",
+    "maps_link": "https://goo.gl/maps/xyz123",
+    "email": "info@tkimanuelbogor.sch.id",
+    "phone_number": "(0251) 1234567",
+    "whatsapp_number": "6281234567890",
+    "instagram_url": "https://instagram.com/tkimanuel",
+    "facebook_url": "https://facebook.com/tkimanuel",
+    "youtube_url": "https://youtube.com/@tkimanuel",
+    "tiktok_url": "https://tiktok.com/@tkimanuel",
+    "opening_hours": "Senin - Jumat: 07.00 - 13.00 WIB"
+}
