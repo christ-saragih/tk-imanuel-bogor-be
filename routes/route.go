@@ -14,7 +14,8 @@ func Setup(
 	tc *controllers.TeacherController,
 	jc *controllers.JumbotronController,
 	cc *controllers.ContactController,
-) { 
+	bc *controllers.BlogController,
+) {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error load .env file")
@@ -39,4 +40,11 @@ func Setup(
 	// Contact Routes
 	app.Get("/v1/contact", cc.GetContact)
 	app.Put("/v1/contact", cc.UpsertContact)
+
+	// Blog Routes
+	app.Post("/v1/blogs", bc.CreateBlog)
+	app.Get("/v1/blogs", bc.GetBlogs)
+	app.Get("/v1/blogs/:slug", bc.GetBlogDetail)
+	app.Put("/v1/blogs/:slug", bc.UpdateBlog)
+	app.Delete("/v1/blogs/:slug", bc.DeleteBlog)
 }

@@ -40,7 +40,12 @@ func main() {
 	contactService := services.NewContactService(contactRepo)
 	contactController := controllers.NewContactController(contactService)
 
-	routes.Setup(app, userController, teacherController, jumbotronController, contactController)
+	// blog
+	blogRepo := repositories.NewBlogRepository()
+	blogService := services.NewBlogService(blogRepo)
+	blogController := controllers.NewBlogController(blogService)
+
+	routes.Setup(app, userController, teacherController, jumbotronController, contactController, blogController)
 
 	port := config.AppConfig.AppPort
 	log.Println("Server is running on port:", port)
