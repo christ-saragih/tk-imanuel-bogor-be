@@ -15,6 +15,7 @@ func Setup(
 	jc *controllers.JumbotronController,
 	cc *controllers.ContactController,
 	bc *controllers.BlogController,
+	gc *controllers.GalleryController,
 ) {
 	err := godotenv.Load()
 	if err != nil {
@@ -47,4 +48,10 @@ func Setup(
 	app.Get("/v1/blogs/:slug", bc.GetBlogDetail)
 	app.Put("/v1/blogs/:slug", bc.UpdateBlog)
 	app.Delete("/v1/blogs/:slug", bc.DeleteBlog)
+
+	// Gallery Routes
+	app.Post("/v1/galleries", gc.CreateGallery)
+	app.Get("/v1/galleries", gc.GetGalleries)
+	app.Put("/v1/galleries/:id", gc.UpdateGallery)
+	app.Delete("/v1/galleries/:id", gc.DeleteGallery)
 }

@@ -45,7 +45,12 @@ func main() {
 	blogService := services.NewBlogService(blogRepo)
 	blogController := controllers.NewBlogController(blogService)
 
-	routes.Setup(app, userController, teacherController, jumbotronController, contactController, blogController)
+	// gallery
+	galleryRepo := repositories.NewGalleryRepository()
+	galleryService := services.NewGalleryService(galleryRepo)
+	galleryController := controllers.NewGalleryController(galleryService)
+
+	routes.Setup(app, userController, teacherController, jumbotronController, contactController, blogController, galleryController)
 
 	port := config.AppConfig.AppPort
 	log.Println("Server is running on port:", port)
